@@ -1,2 +1,3 @@
 lastName,firstName,email,username,loginName,location,roleId,roleName
-pravin,bansal,a@gmail.com,aa,aas,none,3,tester
+pravin,bansal,a@gmail.com,aa,aas,none,3,tester,true
+nitin,gupta,ng@gmail.com,aanitin,asfg,none,3,tester,false

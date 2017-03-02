@@ -15,6 +15,7 @@ public class User implements Serializable {
     private String username;
     private String loginName;
     private String location;
+    private Boolean credentialsExpired;
     private Set<Role> roles = new HashSet<Role>(0);
 
     // lastName,firstName,email,username,loginName,location,roleId,roleName
@@ -45,6 +46,14 @@ public class User implements Serializable {
         if (userData.length > 7) {
             role.name = userData[7];
         }
+
+        if (userData.length > 8) {
+            if (userData[8] != null && ! ((userData[8].toString().equals("true") || userData[8].toString().equals("false")))){
+                throw new IllegalArgumentException("invalid input data " + userData.toString() + " 9th param must be either true or false");
+            }
+            this.credentialsExpired = new Boolean(userData[8]);
+        }
+
         roles.add(role);
     }
 }

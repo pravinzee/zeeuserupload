@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * User entity Wrapper
  */
-public class User implements Serializable {
+ class User implements Serializable {
 
     private String firstName;
     private String lastName;
@@ -19,7 +19,7 @@ public class User implements Serializable {
     private Set<Role> roles = new HashSet<Role>(0);
 
     // lastName,firstName,email,username,loginName,location,roleId,roleName
-    public User(String[] userData) {
+    User(String[] userData) {
 
         this.firstName = userData[1];
         this.lastName = userData[0];
@@ -62,10 +62,10 @@ public class User implements Serializable {
 
 
 class Role {
-    public Long id;
-    public String name;
+    Long id;
+    String name;
 
-    public Role(Long roleId, String name) {
+    Role(Long roleId, String name) {
         this.id = roleId;
         this.name = name;
     }

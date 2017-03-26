@@ -1,0 +1,10 @@
+Utility is to provide user upload to Zephyr enterprise product through a CSV file.
+CSV file field mapping can be referenced through resources/user.csv with in the repository.
+
+Sample command to run this utility.
+
+java -cp .:/Users/Pravin/Documents/temp/libs/* com.thed.ZeeRestClient
+https://demo.yourzephyr.com /Users/Pravin/Documents/temp/libs/users.csv test.manager test.manager
+
+You also need couple of dependencies if your classpath as specified in the lib folder here in the package.
+

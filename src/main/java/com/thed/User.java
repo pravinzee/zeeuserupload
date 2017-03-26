@@ -52,6 +52,8 @@ public class User implements Serializable {
                 throw new IllegalArgumentException("invalid input data " + userData.toString() + " 9th param must be either true or false");
             }
             this.credentialsExpired = new Boolean(userData[8]);
+        }else{
+            this.credentialsExpired = false;
         }
 
         roles.add(role);

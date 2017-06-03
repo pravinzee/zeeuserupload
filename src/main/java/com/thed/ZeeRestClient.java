@@ -35,7 +35,7 @@ public class ZeeRestClient {
 
         //loadProperties();
 
-        List<User> users = CsvParser.parseCsv(as[1]);
+        List<User> users = CsvParser.parseCsv(as[1], false);
         for (User usr : users) {
 
             HttpClient httpClient = new DefaultHttpClient();
@@ -99,10 +99,10 @@ public class ZeeRestClient {
         System.out.println(" ZEE Rest client for user upload");
         System.out.println("\t 1. Server URL ex. " + "https://demo.yourzephyr.com");
         System.out.println("\t 2. CSV file path (absolute) ex./Users/Pravin/resources/users.csv" +
-        " Plz get sample csv format from https://github.com/zeedeveloper/zeenodejsclient/blob/master/users.csv");
+        " Plz get sample csv format from https://github.com/zephyrdeveloper/zeeuserupload/blob/master/src/main/resources/users.csv");
         System.out.println("\t 3. User ID ex. test.manager");
         System.out.println("\t 4. User password ex. test.manager");
-        System.out.println("AN Example call is as following");
+        System.out.println("AN Example call on a Unix like system is as following");
         System.out.println("\t java -cp .:/Users/Pravin/Documents/temp/libs/* com.thed.ZeeRestClient " +
                 " https://demo.yourzephyr.com /Users/Pravin/Documents/temp/libs/users.csv test.manager test.manager");
     }

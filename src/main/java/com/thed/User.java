@@ -9,6 +9,9 @@ import java.util.Set;
  */
  class User implements Serializable {
 
+
+    private Long id;
+    private String title;
     private String firstName;
     private String lastName;
     private String email;
@@ -21,14 +24,15 @@ import java.util.Set;
     // lastName,firstName,email,username,loginName,location,roleId,roleName
     User(String[] userData) {
 
-        this.firstName = userData[1];
-        this.lastName = userData[0];
-        this.email = userData[2];
-        this.username = userData[3];
+        this.title = userData[0];
+        this.lastName = userData[1];
+        this.firstName = userData[2];
+        this.email = userData[3];
+        this.username = userData[4];
 
-        if (userData.length > 4) {
-            this.loginName = userData[4];
-        }
+//        if (userData.length > 5) {
+//            this.loginName = userData[5];
+//        }
         if (userData.length > 5) {
             this.location = userData[5];
         }
@@ -58,6 +62,15 @@ import java.util.Set;
 
         roles.add(role);
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
 
 

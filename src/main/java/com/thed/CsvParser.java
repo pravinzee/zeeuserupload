@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
@@ -20,13 +17,12 @@ public class CsvParser {
     //csv format
     // lastName,firstName,email,username,loginName,location,roleId,roleName
 
-    public static List<User> parseCsv(String csvFile) {
+    public static List<User> parseCsv(String csvFile, boolean edit) {
 
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
         List<User> users = new ArrayList<User>();
-
         try {
             br = new BufferedReader(new FileReader(csvFile));
 
@@ -42,9 +38,19 @@ public class CsvParser {
                     throw new IllegalArgumentException("invalid input data " + userData.toString());
                 }
 
-                Set<Role> roles = new HashSet<Role>();
-                roles.add(new Role(3l, "tester"));
-                User user = new User(userData);
+
+                User user = null;
+                if (edit){
+                    try{
+                        String[] updatedUsers =  Arrays.copyOfRange(userData, 1, userData.length);
+                        user = new User(updatedUsers);
+                        user.setId(new Long(userData[0]));
+                    }catch (Exception e){
+                        throw new IllegalArgumentException("invalid input data || could not parser user id" + userData.toString());
+                    }
+                }else{
+                    user = new User(userData);
+                }
                 users.add(user);
                 i++;
             }

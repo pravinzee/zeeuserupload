@@ -1,10 +1,20 @@
-Utility is to provide user upload to Zephyr enterprise product through a CSV file.
+Utility is to provide user upload or Edit (existing users) to Zephyr enterprise product through a CSV file.
 CSV file field mapping can be referenced through resources/user.csv with in the repository.
 
-Sample command to run this utility.
+
+Usecase 1 : User upload  - Sample Command
 
 java -cp .:/Users/Pravin/Documents/temp/libs/* com.thed.ZeeRestClient
 https://demo.yourzephyr.com /Users/Pravin/Documents/temp/libs/users.csv test.manager test.manager
 
-You also need couple of dependencies if your classpath as specified in the lib folder here in the package.
+
+Usecase 2 : User Edit (existing user) Please follow CSV template from
+https://github.com/zephyrdeveloper/zeeuserupload/blob/master/src/main/resources/usersupdate.csv
+make sure it has database id and other columns as specified in the template , if there is no value to a field pass it a empty value in the data row
+- Sample Command  --
+
+java -cp .:/Users/Pravin/Documents/temp/libs/* com.thed.EditZeeUser
+https://demo.yourzephyr.com /Users/Pravin/Documents/temp/libs/usersupdate.csv test.manager test.manager
+
+You also need couple of other dependencies in your classpath as specified in the lib folder here in the package.
 

@@ -22,8 +22,8 @@ https://demo.yourzephyr.com /Users/Pravin/Documents/temp/libs/usersupdate.csv te
 Download all the dependency present in lib folder at "https://github.com/zephyrdeveloper/zeeuserupload/tree/master/lib"
 provide this in the command line before running the commands.
 
-* Please note while editing existing users, expirecredential field has to be empty or should have the same value (true/false) used 
-when you created user. This field cannot be changed, as it works differently.
+* Please note while editing existing users, expirecredential field has to be empty or should have the same value (true/false) used when you created user. 
+This field cannot be changed, as it works differently.
  
 You will get response code 400 , if you provide an opposite value of expirecredential , to what the user had while creation
 

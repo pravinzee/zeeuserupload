@@ -59,12 +59,12 @@ public class ZeeRestClient {
 
             if (response.getStatusLine().getStatusCode() != 200) {
                 //System.out.println("Failed : HTTP error code : " + response.getStatusLine().getStatusCode() + " user name " + usr.getUsername());
-                System.out.println("user upload failed username :" + usr.getUsername());
+                System.out.println("user upload failed for username : " + usr.getUsername());
                 failedCount = failedCount + 1;
 
 
             }else{
-                System.out.println("User uploaded successfully : " + usr.getUsername());
+                System.out.println("User uploaded successfully for username : " + usr.getUsername());
                 successCount = successCount + 1;
             }
 
@@ -80,7 +80,7 @@ public class ZeeRestClient {
             }
             //System.out.println(totalOutput.toString());
         }
-        System.out.println("Total successful : " + successCount);
+        System.out.println("Total successful user upload: " + successCount);
         System.out.println("Total failed  : " + failedCount);
 
     }

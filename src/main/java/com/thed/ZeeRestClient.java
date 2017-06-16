@@ -36,12 +36,14 @@ public class ZeeRestClient {
         //loadProperties();
 
         List<User> users = CsvParser.parseCsv(as[1], false);
+        int failedCount = 0;
+        int successCount = 0;
         for (User usr : users) {
 
             HttpClient httpClient = new DefaultHttpClient();
             String url = as[0]+ "/flex/services/rest/v1/user/";
 
-            System.out.println("posting to URL " + url);
+            //System.out.println("posting to URL " + url);
 
             HttpPost postRequest = new HttpPost(url);
             //HttpPost postRequest = new HttpPost("http://localhost:8080/flex/services/rest/v1/user/");
@@ -56,7 +58,14 @@ public class ZeeRestClient {
             HttpResponse response = httpClient.execute(postRequest);
 
             if (response.getStatusLine().getStatusCode() != 200) {
-                System.out.println("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+                //System.out.println("Failed : HTTP error code : " + response.getStatusLine().getStatusCode() + " user name " + usr.getUsername());
+                System.out.println("user upload failed username :" + usr.getUsername());
+                failedCount = failedCount + 1;
+
+
+            }else{
+                System.out.println("User uploaded successfully : " + usr.getUsername());
+                successCount = successCount + 1;
             }
 
             BufferedReader br = new BufferedReader(
@@ -64,13 +73,16 @@ public class ZeeRestClient {
 
             String output;
             StringBuffer totalOutput = new StringBuffer();
-            System.out.println("Output from Server .... \n");
+            //System.out.println("Output from Server .... \n");
             while ((output = br.readLine()) != null) {
-                System.out.println(output);
+                //System.out.println(output);
                 totalOutput.append(output);
             }
-            System.out.println(totalOutput.toString());
+            //System.out.println(totalOutput.toString());
         }
+        System.out.println("Total successful : " + successCount);
+        System.out.println("Total failed  : " + failedCount);
+
     }
 
 

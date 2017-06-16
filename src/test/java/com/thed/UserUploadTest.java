@@ -19,7 +19,7 @@ public class UserUploadTest {
         params[3] = "test.manager";
 
         ZeeRestClient.main(params);
-        System.out.println("user uploaded successfully");
+        //System.out.println("user uploaded successfully");
     }
 
 }
